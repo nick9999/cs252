@@ -32,7 +32,17 @@ session_start();
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+<style type="text/css">
+    h4, .h4{
+      margin-bottom: 1px !important;
+    }
+    .table>tbody>tr>td{
+        margin-top: 1px !important;
+    }
+    .table{
+        margin-bottom: 1px !important;
+    }
+</style>
 </head>
 
 <body>
@@ -63,8 +73,8 @@ session_start();
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
+                                        <h4 class="media-heading"><strong>John Smith</strong>
+                                        </h4>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
                                     </div>
@@ -78,8 +88,8 @@ session_start();
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
+                                        <h4 class="media-heading"><strong>John Smith</strong>
+                                        </h4>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
                                     </div>
@@ -93,8 +103,8 @@ session_start();
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
+                                        <h4 class="media-heading"><strong>John Smith</strong>
+                                        </h4>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
                                     </div>
@@ -156,16 +166,19 @@ session_start();
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class=" navbar ">
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li >
-                        <a href="student_main.php"><i class="fa fa-fw fa-dashboard"></i> Courses</a>
+                        <a href="cs252.php"> Home</a>
                     </li>
                     <li class="active">
-                        <a href="announcement.php"><i class="fa fa-fw fa-comment"></i> Announcements</a>
+                        <a href="cs252_lecture.php"> Lectures</a>
                     </li>
                     <li>
-                        <a href="calendar.html"><i class="fa fa-fw fa-calendar"></i> Calendar</a>
+                        <a href="#"> Assignments</a>
+                    </li>
+                    <li>
+                        <a href="#"> Grades</a>
                     </li>
                     <!-- <li>
                         <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
@@ -198,92 +211,61 @@ session_start();
         <div id="page-wrapper">
 
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-fw fa-comment"></i> Announcements</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="list-group">
-                                
-                                <?php
-                                    session_start();
-
-                                    $name=$_SESSION["username"];
-                                    $servername = "localhost";
-                                    $username = "root";
-                                    $password = "root";
-                                    $dbname = "cs252";
-
-                                    $conn = new mysqli($servername, $username, $password, $dbname);
-                                    if ($conn->connect_error) 
-                                    {
-                                        die("Connection failed: " . $conn->connect_error);
-                                    } 
-
-                                    $sql1="SELECT * FROM  `announcement` ORDER BY DATE DESC ";
-                                    $result1 = $conn->query($sql1);
-                                    
-                                    if ($result1->num_rows > 0) 
-                                    {   
-                                        //echo $i;
-                                        while($row = $result1->fetch_assoc())  
-                                        {
-                                            
-                                            $sql_new = "SELECT student_username FROM " . $row["course_code"]." WHERE student_username='".$_SESSION['username']."'" ;
-                                            $result_new = $conn->query($sql_new);
-                                            
-                                            
-                                                if($result_new->num_rows == 1)
-                                                {
-                                                    // echo "<br>";
-                                                    // echo $row["course_code"];
-                                                    // echo "<br>";
-                                                    // echo $row["announcement"];
-                                                    // echo "<br>";
-                                                    echo '<a class="list-group-item">
-                                                            <strong>'.$row['course_name'].'</strong>
-                                                            <br><br>'.$row['announcement'].'</a>';
-                                                    
-                                                }
-                                                
-                                        }
-
-                                    }
-
-
-
-
-                                    $conn->close();
-                                    ?>
-
-
-                                <!-- <a class="list-group-item">
-                                <strong>Algorithms 2</strong>
-                                <br><br>All classes are cancelled</a> -->
-                            </div>
-                        </div>
-                        <!-- <a href="student_announcement.php">
-                                <div class="panel-footer">
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <span class="pull-right">View all announcements &nbsp</span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a> -->
-                    </div>
-                </div>    
+                   
                 <!-- Page Heading -->
-                <!-- <div class="row"> -->
-                    <!-- <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Dashboard <small>Statistics Overview</small>
-                        </h1>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard
-                            </li>
-                        </ol>
-                    </div> -->
+                
+                    <div class="row">
+                        <div class="col-lg-12">
+                        <center>
+                            <div class="panel-heading">
+                                <h2> Lecture Slides</h2>
+                            </div>
+                            </center>
+                            <div class="panel-body">
+                                <div class="table">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <tbody>
+                                
+
+                                <?php
+
+                                        $comeFrom = $_SERVER['PHP_SELF'];
+                                        $value = explode("/", $comeFrom);
+                                        $value2 =  explode(".",$value[2]);
+
+                                        $servername = "localhost";
+                                        $username = "root";
+                                        $password = "root";
+                                        $dbname = "cs252";
+
+                                        $conn = new mysqli($servername, $username, $password, $dbname);
+                                        if ($conn->connect_error) 
+                                        {
+                                            die("Connection failed: " . $conn->connect_error);
+                                        } 
+
+                                        $sql = "SELECT * FROM ".$value2[0] ;
+                                        $result = $conn->query($sql);
+                                        while($row = $result->fetch_assoc()) 
+                                        {
+                                            echo    '<tr>
+                                                    <td>'.$row['lecture_name'].'</td>
+                                                    <td><a href="fileread.php?file='.$row['lecture_link'].'">Slides</td>
+                                                    <tr>';
+                                            
+                                        }
+                                        $conn->close();
+
+                                        ?> 
+
+                                 </tbody>
+                                </table>
+                            </div>
+                                        
+                                        
+
+                    
+
                 <!-- </div> -->
                 <!-- /.row -->
 
