@@ -8,36 +8,7 @@
 	<script type="text/javascript" src="js/dialog.js"></script>
 	<script type="text/javascript" src="js/dialog1.js"></script>
 
-	<script type="text/javascript">
-		$(document).ready(function() 
-		{
-			var min_chars = 5;
-			var characters_error = 'Minimum amount of chars is 5';
-			var checking_html = 'Checking...';
-
-			$('#check_username_availability').click(function(){
-				if($('#username').val().length < min_chars)
-					$('#username_availability_result').html(characters_error);
-				else
-				{
-					$('#username_availability_result').html(checking_html);
-					check_availability();
-				}
-			});
-	  	});
-
-		function check_availability()
-		{
-				var username = $('#username').val();
-				$.post("check_username.php", { username: username },
-					function(result){
-						if(result == 1)
-							$('#username_availability_result').html(username + ' is Available');
-						else
-							$('#username_availability_result').html(username + ' is not Available');
-				});
-		}
-	</script>
+	
 </head>
 <body>
 	<div class="container">
@@ -52,8 +23,8 @@
 				<label>Username:</label><br/>
 				<input type="text" id="username" name="username"  ><br/>
 
-				<input type='button' id='check_username_availability' value='Check Availability'>  
-				<div id='username_availability_result'></div> 
+				<!-- <input type='button' id='check_username_availability' value='Check Availability'>   -->
+				<!-- <div id='username_availability_result'></div>  -->
 
 				<label>Password:</label><br/>
 				<input type="password" id="password" name="password"  ><br/>
@@ -83,8 +54,8 @@
 				<label>Username:</label><br/>
 				<input type="text" id="username" name="username"><br/>
 
-				<input type='button' id='check_username_availability' value='Check Availability'>  
-				<div id='username_availability_result'></div> 
+				<!-- <input type='button' id='check_username_availability' value='Check Availability'>   -->
+				<!-- <div id='username_availability_result'></div>  -->
 
 				<label>Password:</label><br/>
 				<input type="password" id="password" name="password"><br/>

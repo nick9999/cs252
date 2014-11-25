@@ -40,7 +40,11 @@
     	width: 850px  !important;
     	background-color: #ececec !important;
     }
-    
+    .col-md-4{
+        float:none  !important;
+        margin-left: 350px !important;
+        margin-top: 80px !important;
+    }
 </style>
 
 </head>
@@ -50,59 +54,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <span  class="navbar-brand" >Course Managment System</span>
-				
-            </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-              
-
-                <li>
-                    
-                    <div class="bs-example">
-
-                        <form action='auth.php' method='POST' class="form-inline">
-                            <div class="form-group">
-
-                                <label class="sr-only" >Username</label>
-
-                                <input type="text" class="form-control" id="inputusername" name="username" placeholder="Username">
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label class="sr-only" for="inputPassword">Password</label>
-
-                                <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
-
-                            </div>
-
-                            
-
-                            <button type="submit" class="btn btn-primary">Login</button>
-
-                        </form>
-                    </div>
-
-
-                </li>
-
-               
-            </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-           
-            <!-- /.navbar-collapse -->
-        </nav>
+        
 
     </div>
     <!-- /#wrapper -->    
@@ -164,8 +116,10 @@
 					-->
 					<br>
 					<br>
-					
-					<div class="col-lg-4">
+                    
+    				<div class="container">
+
+					<div class="col-md-4 ">
                         <div class="panel panel-red">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Course Management</h3>
@@ -200,7 +154,7 @@
                             </div>
                         </div>
                     </div>
-					
+
 					
 </body>
 

@@ -171,13 +171,13 @@ session_start();
                     <li >
                         <a href="cs252.php"> Course Home Page</a>
                     </li>
-                    <li class="active">
+                    <li >
                         <a href="lecture.php"> Lectures</a>
                     </li>
                     <li>
                         <a href="assignment.php"> Assignments</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="grades.php"> Grades</a>
                     </li>
                     <!-- <li>
@@ -213,58 +213,91 @@ session_start();
             <div class="container-fluid">
                    
                 <!-- Page Heading -->
-                
-                    <div class="row">
-                        <div class="col-lg-12">
-                        <center>
+                <div class="row">
+                     <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h2> Lecture Slides</h2>
+                                <center>
+                                <h4 class="panel-title" style="font-size:30px; color:blue;">Grades</h4>
+                                </center>
                             </div>
-                            </center>
                             <div class="panel-body">
                                 <div class="table">
                                     <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th><center>Examination Name</center></th>
+                                                <th><center>Percentage</center></th>
+                                                <th><center>Average</center></th>
+                                            </tr>
+                                        </thead>
                                         <tbody>
-                                
 
-                                <?php
 
-                                        // $comeFrom = $_SERVER['PHP_SELF'];
-                                        // $value = explode("/", $comeFrom);
-                                        // $value2 =  explode(".",$value[2]);
-                                        $course_name = $_SESSION["course_name"];
-                                        $servername = "localhost";
-                                        $username = "root";
-                                        $password = "root";
-                                        $dbname = "cs252";
+                                       
+                                        <?php
+                                                //session_start();
+                                                $student_username = $_SESSION["username"];
+                                                $course_name = $_SESSION["course_name"];
+                                                //$course_name = "cs252";
+                                                //$student_username = "nikhilp";
+                                                $servername = "localhost";
+                                                $username   = "root";
+                                                $password   = "root";
+                                                $dbname     = "cs252";
 
-                                        $conn = new mysqli($servername, $username, $password, $dbname);
-                                        if ($conn->connect_error) 
-                                        {
-                                            die("Connection failed: " . $conn->connect_error);
-                                        } 
+                                                $conn = new mysqli($servername, $username, $password, $dbname);
+                                                if ($conn->connect_error) 
+                                                {
+                                                    die("Connection failed: " . $conn->connect_error);
+                                                }
 
-                                        $sql = "SELECT * FROM ".$course_name ;
-                                        $result = $conn->query($sql);
-                                        while($row = $result->fetch_assoc()) 
-                                        {
-                                            echo    '<tr>
-                                                    <td>'.$row['lecture_name'].'</td>
-                                                    <td><a href="fileread.php?file='.$row['lecture_link'].'">Slides</td>
-                                                    <tr>';
-                                            
-                                        }
-                                        $conn->close();
+                                                $sql = "SELECT * FROM ".$course_name."_weightage";
+                                                $result = $conn->query($sql);
 
-                                        ?> 
+                                                while($row = $result->fetch_assoc()) 
+                                                {
 
-                                 </tbody>
-                                </table>
-                            </div>
-                                        
-                                        
+                                                    $sql1 = "SELECT * FROM ".$course_name." WHERE student_username = '".$student_username."'";
+                                                    $result1 = $conn->query($sql1);
+//                                                    echo "hi";
+//                                                    echo $student_username."<br>";
+                                                    while ($row1 = $result1->fetch_assoc())
+                                                    {
+
+                                                        $column_name = $row['test_name']."_marks";
+                                                        //echo "<br>Course Name : ".$row['test_name'];
+                                                        //echo "<br>Marks : ".$row1[$column_name];
+                                                        $sql2 = "SELECT SUM(".$row1[$column_name].") AS sum_marks , COUNT(*) AS student_count FROM ".$course_name;
+                                                        //echo "<br>".$sql2;
+                                                        $result2 = $conn->query($sql2);
+                                                        $row2 = $result2->fetch_assoc();
+                                                        //echo "<br>".$row2['sum_marks'];
+                                                        //echo "<br>".$row2['student_count'];
+                                                        $marks = $row2['sum_marks']/$row2['student_count'];
+                                                        //echo "<br>Average Marks : ".$marks;
+                                                        echo "<tr>
+                                                                <td><center>".$row['test_name']."</center></td>
+                                                                <td><center>".$row1[$column_name]."</center></td>
+                                                                <td><center>".$marks."</center></td>
+                                                                </tr>";
+                                                    }
+                                                }
+                                                $conn->close();
+                                        ?>                                                                                
+
+
+
+
+                                            <!--  <tr>
+                                                <td><center>Quiz 1</center></td>
+                                                <td><center>80</center></td>
+                                                <td><center>68</center></td>
+                                            </tr> -->
+                                        </tbody>
 
                     
+
+                   
 
                 <!-- </div> -->
                 <!-- /.row -->

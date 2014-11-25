@@ -244,7 +244,8 @@ session_start();
                                             die("Connection failed: " . $conn->connect_error);
                                         } 
 
-                                        $sql = "SELECT * FROM ".$course_name ;
+                                        $sql = "SELECT * FROM ".$course_name."_lecture" ;
+                                        
                                         $result = $conn->query($sql);
                                         while($row = $result->fetch_assoc()) 
                                         {

@@ -172,13 +172,13 @@ session_start();
                         <a href="cs252.php"> Home</a>
                     </li>
                     <li class="active">
-                        <a href="cs252_lecture.php"> Lectures</a>
+                        <a href="lecture.php"> Lectures</a>
                     </li>
                     <li>
-                        <a href="#"> Assignments</a>
+                        <a href="assignments.php"> Assignments</a>
                     </li>
                     <li>
-                        <a href="#"> Grades</a>
+                        <a href="grades.php"> Grades</a>
                     </li>
                     <!-- <li>
                         <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>

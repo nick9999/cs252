@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['course_name']=cs252;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -168,17 +169,17 @@ session_start();
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
+                    <li >
                         <a href="cs252.php"> Course Home Page</a>
                     </li>
                     <li >
-                        <a href="cs252_lecture.php"> Lectures</a>
+                        <a href="lecture.php"> Lectures</a>
                     </li>
                     <li>
-                        <a href="#"> Assignments</a>
+                        <a href="assignment.php"> Assignments</a>
                     </li>
-                    <li>
-                        <a href="#"> Grades</a>
+                    <li >
+                        <a href="grades.php"> Grades</a>
                     </li>
                     <!-- <li>
                         <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>

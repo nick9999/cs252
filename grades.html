@@ -32,17 +32,7 @@ session_start();
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-<style type="text/css">
-    h4, .h4{
-      margin-bottom: 1px !important;
-    }
-    .table>tbody>tr>td{
-        margin-top: 1px !important;
-    }
-    .table{
-        margin-bottom: 1px !important;
-    }
-</style>
+
 </head>
 
 <body>
@@ -73,8 +63,8 @@ session_start();
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h4 class="media-heading"><strong>John Smith</strong>
-                                        </h4>
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
                                     </div>
@@ -88,8 +78,8 @@ session_start();
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h4 class="media-heading"><strong>John Smith</strong>
-                                        </h4>
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
                                     </div>
@@ -103,8 +93,8 @@ session_start();
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h4 class="media-heading"><strong>John Smith</strong>
-                                        </h4>
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
                                     </div>
@@ -168,17 +158,14 @@ session_start();
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li >
-                        <a href="cs252.php"> Course Home Page</a>
-                    </li>
                     <li class="active">
-                        <a href="lecture.php"> Lectures</a>
+                        <a href="student_main.php"><i class="fa fa-fw fa-dashboard"></i> Courses</a>
                     </li>
                     <li>
-                        <a href="assignment.php"> Assignments</a>
+                        <a href="announcement.php"><i class="fa fa-fw fa-comment"></i> Announcements</a>
                     </li>
                     <li>
-                        <a href="grades.php"> Grades</a>
+                        <a href="calendar.html"><i class="fa fa-fw fa-calendar"></i> Calendar</a>
                     </li>
                     <!-- <li>
                         <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
@@ -211,61 +198,19 @@ session_start();
         <div id="page-wrapper">
 
             <div class="container-fluid">
-                   
+
                 <!-- Page Heading -->
-                
-                    <div class="row">
-                        <div class="col-lg-12">
-                        <center>
-                            <div class="panel-heading">
-                                <h2> Lecture Slides</h2>
-                            </div>
-                            </center>
-                            <div class="panel-body">
-                                <div class="table">
-                                    <table class="table table-bordered table-hover table-striped">
-                                        <tbody>
-                                
-
-                                <?php
-
-                                        // $comeFrom = $_SERVER['PHP_SELF'];
-                                        // $value = explode("/", $comeFrom);
-                                        // $value2 =  explode(".",$value[2]);
-                                        $course_name = $_SESSION["course_name"];
-                                        $servername = "localhost";
-                                        $username = "root";
-                                        $password = "root";
-                                        $dbname = "cs252";
-
-                                        $conn = new mysqli($servername, $username, $password, $dbname);
-                                        if ($conn->connect_error) 
-                                        {
-                                            die("Connection failed: " . $conn->connect_error);
-                                        } 
-
-                                        $sql = "SELECT * FROM ".$course_name ;
-                                        $result = $conn->query($sql);
-                                        while($row = $result->fetch_assoc()) 
-                                        {
-                                            echo    '<tr>
-                                                    <td>'.$row['lecture_name'].'</td>
-                                                    <td><a href="fileread.php?file='.$row['lecture_link'].'">Slides</td>
-                                                    <tr>';
-                                            
-                                        }
-                                        $conn->close();
-
-                                        ?> 
-
-                                 </tbody>
-                                </table>
-                            </div>
-                                        
-                                        
-
-                    
-
+                <!-- <div class="row"> -->
+                    <!-- <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Dashboard <small>Statistics Overview</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dashboard
+                            </li>
+                        </ol>
+                    </div> -->
                 <!-- </div> -->
                 <!-- /.row -->
 
@@ -385,7 +330,7 @@ session_start();
                 <!-- </div> -->
                 <!-- /.row -->
 
-                <!-- <div class="row"> -->
+                <div class="row">
                     <!-- <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -399,15 +344,44 @@ session_start();
                             </div>
                         </div>
                     </div> -->
-                    <!-- <div class="col-lg-12">
+                    <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-fw fa-dashboard"></i> My Courses</h3>
                             </div>
-                     -->        
-                     <!-- <div class="panel-body">
-                                <div class="list-group"> -->
+                            <div class="panel-body">
+                                <div class="list-group">
+                                <?php
+                                $servername = "localhost";
+                                $username = "root";
+                                $password = "root";
+                                $dbname = "cs252";
+
+                                $conn = new mysqli($servername, $username, $password, $dbname);
+                                if ($conn->connect_error) 
+                                {
+                                    die("Connection failed: " . $conn->connect_error);
+                                } 
+
+                                $sql = "SELECT course_code , instructor_name , course_name FROM course_instructor";
+                                $result = $conn->query($sql);
+                                if ($result->num_rows > 0) 
+                                {
+                                    while($row = $result->fetch_assoc()) 
+                                    {
+                                        $sql_new = "SELECT student_username FROM " . $row['course_code'] ." WHERE student_username='".$_SESSION['username']."'";
+                                        $result_new = $conn->query($sql_new);
+                                        if($result_new->num_rows == 1)
+                                        {
+                                            $name=$row['course_code'];
+                                            echo '<a href="'.$name.'.php" class="list-group-item"><span class="badge">'
+                                            .$row['instructor_name'].'</span>'
+                                            .$row['course_name'].'<br>'.$name.'</a>';
+                                        }
+                                    }
+                                }
                                 
+                                ?>
                                     <!-- <a href="#" class="list-group-item">
                                         <span class="badge">4 minutes ago</span>
                                         <i class="fa fa-fw fa-comment"></i> Commented on a post
@@ -436,13 +410,13 @@ session_start();
                                         <span class="badge">two days ago</span>
                                         <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
                                     </a> -->
-                                <!-- </div> -->
+                                </div>
                                 <!-- <div class="text-right">
                                     <a href="#">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
                                 </div> -->
-                            <!-- </div> -->
-                        <!-- </div> -->
-                    <!-- </div> -->
+                            </div>
+                        </div>
+                    </div>
                     <!-- <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -517,7 +491,7 @@ session_start();
                             </div>
                         </div>
                     </div> -->
-                <!-- </div> -->
+                </div>
                 <!-- /.row -->
 
             </div>
