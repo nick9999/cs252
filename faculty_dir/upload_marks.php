@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,13 +15,13 @@
     <title>Instructor's Course Page</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="../css/sb-admin.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -205,15 +208,7 @@
                         </ol>
                     </div>
 					<div>
-						<table style="width:100%">
-						<tr>
-							<td><a href="#"><button type="button" class="btn btn-lg btn-default">Upload Marks</button></a></td>
-		                	<td><a href="#"><button type="button" class="btn btn-lg btn-default">Check Assignment</button></a></td>
-		                	<td><a href="#"><button type="button" class="btn btn-lg btn-default">Upload Assignment Question</button></a></td>
-		                	<td><a href="#"><button type="button" class="btn btn-lg btn-default">Make announcement</button></a></td>
-						</tr>
-						</table>
-						<div class="table-responsive">
+						<div> <!-- class="table-responsive">-->
 							<h2>List of students enrolled in this course:-</h2>
                             <table class="table table-hover table-striped">
                                 <thead>
@@ -254,10 +249,10 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="../js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
 </body>
 

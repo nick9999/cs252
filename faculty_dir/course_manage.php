@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Instructor's Landing Page</title>
+    <title>Instructor's Course Page</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -99,7 +102,7 @@
                             </a>
                         </li>
                         <li class="message-footer">
-                            <a href="Inbox.html">Read All New Messages</a>
+                            <a href="#">Read All New Messages</a>
                         </li>
                     </ul>
                 </li>
@@ -137,7 +140,7 @@
                             <a href="index.html"><i class="fa fa-fw fa-user"></i> Profile</a>
                         </li>
                         <li>
-                            <a href="Inbox.html"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
@@ -157,11 +160,12 @@
                     </li>
 					<li>
                         <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Create Course</a>
-                    </li>                    <li>
+                    </li>
+					<li  class="active">
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Courses <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="course_admin.html">CC007</a>
+                                <a href="#">Course 1</a>
                             </li>
                             <li>
                                 <a href="#">Course 2</a>
@@ -188,75 +192,57 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="row" style="padding:30px">
-					<div class="navbar navbar-default">
-	                    <div class="container">
-	                        <div class="navbar-header">
-	                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	                                <span class="sr-only">Toggle navigation</span>
-	                                <span class="icon-bar"></span>
-	                                <span class="icon-bar"></span>
-	                                <span class="icon-bar"></span>
-	                            </button>
-	                            <a class="navbar-brand" href="#">MailBox</a>
-	                        </div>
-	                        <div class="navbar-collapse collapse">
-	                            <ul class="nav navbar-nav">
-	                                <li class="active"><a href="#">Inbox</a>
-	                                </li>
-	                                <li><a href="#about">Sent</a>
-	                                </li>
-	                                <li><a href="#contact"></a>
-	                                </li>
-	                                <!--<li class="dropdown">
-	                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-	                                    <ul class="dropdown-menu">
-	                                        <li><a href="#">Action</a>
-	                                        </li>
-	                                        <li><a href="#">Another action</a>
-	                                        </li>
-	                                        <li><a href="#">Something else here</a>
-	                                        </li>
-	                                        <li class="divider"></li>
-	                                        <li class="dropdown-header">Nav header</li>
-	                                        <li><a href="#">Separated link</a>
-	                                        </li>
-	                                        <li><a href="#">One more separated link</a>
-	                                        </li>
-	                                    </ul>
-	                                </li>-->
-	                            </ul>
-	                        </div>
-	                        <!--/.nav-collapse -->
-	                    </div>
-                	</div>
-                    <div class="table-responsive">
-	                    <table class="table table-bordered table-hover table-striped">
-                            <thead>
-                                <tr>
-                                    <th>From</th>
-                                    <th>Date</th>
-                                    <th>Subject</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Avikalp Kumar Gupta</td>
-                                    <td>Nov 1, 2014</td>
-                                    <td>Sending a test mail: By the way this is hard coded.</td>
-                                </tr>
-    	                        <tr>
-                                    <td>Nikhil Patil</td>
-                                    <td>7:12 pm</td>
-                                    <td>The chess match between Vishwanathan Anand and Karlson</td>
-                                </tr>
-                                <tr>
-                                    <td>Priyaranjan</td>
-                                    <td>Fri, 3:14 pm</td>
-                                    <td>Main frust ho chuka hu, jane do</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            CC007
+                            <small>Course Name</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-file"></i> CC007
+                            </li>
+                        </ol>
+                    </div>
+					<div>
+						<table style="width:100%">
+						<tr>
+							<td><a href="upload_marks.php"><button type="button" class="btn btn-lg btn-default">Upload Marks</button></a></td>
+		                	<td><a href="#"><button type="button" class="btn btn-lg btn-default">Check Assignment</button></a></td>
+		                	<td><a href="#"><button type="button" class="btn btn-lg btn-default">Upload Assignment Question</button></a></td>
+		                	<td><a href="#"><button type="button" class="btn btn-lg btn-default">Make announcement</button></a></td>
+						</tr>
+						</table>
+						<div class="table-responsive">
+							<h2>List of students enrolled in this course:-</h2>
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+										<th>Sr. No.</th>
+										<th>Name</th>
+										<th>Roll No.</th>
+										<th>Current Aggregate Marks</th>
+									</tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+										<td>1</td>
+										<td>Avikalp Kumar Gupta</td>
+										<td>12178</td>
+										<td><a href="#">72</a></td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Nikhil Patil</td>
+										<td>12345</td>
+										<td><a href="#">89</a></td>
+									</tr>
+                                </tbody>
+                            </table>
+						</div>
 					</div>
                 </div>
                 <!-- /.row -->
@@ -271,10 +257,10 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="../js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
 </body>
 

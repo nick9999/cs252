@@ -1,5 +1,32 @@
 <?php
 session_start();
+
+$name=$_SESSION["username"];
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "cs252";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) 
+{
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql_fac_details = 'select * from users where username = "'.$name.'";';
+$fac_details = $conn->query($sql_fac_details);
+if ($row = $fac_details->fetch_assoc()) 
+{
+	// $row = $fac_details->fetch_assoc()
+	// echo "<br>";
+	echo $row["name"];
+}
+
+$sql1='SELECT course_code FROM  course_instructor where instructor_username = "'.$name.'" ;';
+$result1 = $conn->query($sql1);
+$num_courses = $result1->num_rows;
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -134,7 +161,7 @@ session_start();
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Arnab Bhattacharya <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $row["name"]; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -163,15 +190,17 @@ session_start();
                     </li>                    <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Courses <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
-                            <li>
-                                <a href="course_admin.html">CC007</a>
-                            </li>
-                            <li>
-                                <a href="#">Course 2</a>
-                            </li>
-							<li>
-								<a href="#">Course 3</a>
-							</li>
+                        	<?php 
+                        	for ($i=0; $i < $num_courses; $i++) : 
+                        		if ($row_course = $result1->fetch_assoc()) :
+                        	?>
+	                            <li>
+	                                <a href="course_manage.php"> <?php echo $row_course["course_code"]; ?> </a>
+	                            </li>
+                        	<?php 
+                        		endif;
+                        	endfor;
+                        	?>
                         </ul>
                     </li>
                     <li>
@@ -206,7 +235,7 @@ session_start();
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Arnab Bhattacharya<br/>
+                            <?php echo $row["name"]; ?><br/>
                             <small>Department of Computer Science and Engineering</small>
                         </h1>
                         <ol class="breadcrumb">
@@ -223,19 +252,19 @@ session_start();
 							<table style="border-spacing: 15px">
 							<tr>
 								<th style="height:40px; width:200px">User Id:</th>
-								<td>avikalpg</td>
+								<td><?php echo $name; ?></td>
 							</tr>
 							<tr>
 								<th style="height:40px">email:</th>
-								<td>avikalpg@iitk.ac.in</td>
+								<td><?php echo $row["email"]; ?></td>
 							</tr>
 							<tr>
 								<th style="height:40px">Roll No.:</th>
-								<td>12178</td>
+								<td><?php echo $row["roll"]; ?></td>
 							</tr>
 							<tr>
 								<th style="height:40px">Mobile No.:</th>
-								<td>+91-8604110430</td>
+								<td><?php echo $row["phone"]; ?></td>
 							</tr>
 							</table>
 						</h3></div>
@@ -253,10 +282,10 @@ session_start();
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="../js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
 </body>
 
