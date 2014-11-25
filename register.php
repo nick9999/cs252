@@ -54,9 +54,9 @@
 	      <div id="dialog1" title="Student Signup">
 	         <form action="signup.php" method="post">
 				<label>Full Name:</label><br/>
-				<input type="text" id="name" name="name"><br/>
+				<input type="text" id="name1" name="name"><br/>
 				<label>Email:</label><br/>
-				<input type="email" id="email" name="email"  ><br/>	
+				<input type="email" id="email1" name="email"  ><br/>	
 				<!-- <input type="text" id="email" name="email"  ><br/>	-->
 				<label>Username:</label><br/>
 				<input type="text" id="username" name="username"><br/>
