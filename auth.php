@@ -8,8 +8,10 @@ if($comeFrom == "http://localhost/cs252_project/login.php" || $comeFrom == "http
 	//$flag=0;
 	if($username && $password)
 	{
+		echo "test 1";
 		$connect=mysql_connect("localhost","root","root") or die("Unable to connect Database");
 		mysql_select_db("cs252");
+		echo "test2";
 		// if(mysql_connect_errno())
 		// {
 		// 	$message = "Failed to connect to database";
@@ -33,7 +35,7 @@ if($comeFrom == "http://localhost/cs252_project/login.php" || $comeFrom == "http
 				if($tors='s')
 				header("Location:http://localhost/cs252_project/student_main.php");
 					//header("Location:./student_main.php")
-				else header("Location:http://localhost/cs252_project/teacher_main.php");
+				else header("Location:http://localhost/cs252_project/faculty_dir/faculty_main.php");
 				//else header("Location:./teacher_main.php");
 			}
 			else
