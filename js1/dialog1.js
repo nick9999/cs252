@@ -15,8 +15,8 @@ $(document).ready(function(){
 	//validating Form Fields.....
 	$("#submit1").click(function(e){
 
-	var email = $("#email").val();
-	var name = $("#name").val();
+	var email = $("#email1").val();
+	var name = $("#name1").val();
 	var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 	document.getElementById("button2").disabled = false;
 	if( email =='' || name =='' || username=='' || password=='' || repassword=='')
