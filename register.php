@@ -39,7 +39,7 @@
 				<input type="password" id="repassword" name="repassword"  ><br/>
 				<label>Phone Number:</label><br/>
 				<input type="text" id="phone" name="phone"  ><br/>
-				<input type='hidden' name='flag' value='T' />
+				<input type='hidden' name='flag' value='t' />
 				<input type="submit" id="submit" value="Submit" />
 			  </form>
 		  </div>
@@ -54,9 +54,9 @@
 	      <div id="dialog1" title="Student Signup">
 	         <form action="signup.php" method="post">
 				<label>Full Name:</label><br/>
-				<input type="text" id="name" name="name"><br/>
+				<input type="text" id="name1" name="name"><br/>
 				<label>Email:</label><br/>
-				<input type="email" id="email" name="email"  ><br/>	
+				<input type="email" id="email1" name="email"  ><br/>	
 				<!-- <input type="text" id="email" name="email"  ><br/>	-->
 				<label>Username:</label><br/>
 				<input type="text" id="username" name="username"><br/>
@@ -68,7 +68,7 @@
 				<input type="password" id="password" name="password"><br/>
 				<label>Confirm Password:</label><br/>
 				<input type="password" id="repassword" name="repassword"><br/>
-				<input type='hidden' name='flag' value='S' />
+				<input type='hidden' name='flag' value='s' />
 				<input type="submit" id="submit1" value="Submit" />
 			  </form>
 		  </div>
