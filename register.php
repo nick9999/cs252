@@ -39,7 +39,7 @@
 				<input type="password" id="repassword" name="repassword"  ><br/>
 				<label>Phone Number:</label><br/>
 				<input type="text" id="phone" name="phone"  ><br/>
-				<input type='hidden' name='flag' value='T' />
+				<input type='hidden' name='flag' value='t' />
 				<input type="submit" id="submit" value="Submit" />
 			  </form>
 		  </div>
@@ -68,7 +68,7 @@
 				<input type="password" id="password" name="password"><br/>
 				<label>Confirm Password:</label><br/>
 				<input type="password" id="repassword" name="repassword"><br/>
-				<input type='hidden' name='flag' value='S' />
+				<input type='hidden' name='flag' value='s' />
 				<input type="submit" id="submit1" value="Submit" />
 			  </form>
 		  </div>
