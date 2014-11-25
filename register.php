@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/dialog.css"/>
+    <link rel="stylesheet" href="css1/dialog.css"/>
 	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="js/dialog.js"></script>
-	<script type="text/javascript" src="js/dialog1.js"></script>
+	<script type="text/javascript" src="js1/dialog.js"></script>
+	<script type="text/javascript" src="js1/dialog1.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function() 
@@ -39,8 +39,15 @@
 		}
 	</script>
 </head>
-<body>
+<body  style="background-color:#BDC3C7">
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<br><br><br><br><br><br>
 	<div class="container">
+	
 	   <div class="main">
 	      <div id="dialog" title="Teacher Signup">
 	         <form action="signup.php" method="post">
@@ -59,7 +66,7 @@
 				<input type="password" id="password" name="password"  ><br/>
 				<label>Confirm Password:</label><br/>
 				<input type="password" id="repassword" name="repassword"  ><br/>
-				<label>Phone Nmber:</label><br/>
+				<label>Phone Number:</label><br/>
 				<input type="text" id="phone" name="phone"  ><br/>
 				<input type='hidden' name='flag' value='T' />
 				<input type="submit" id="submit" value="Submit" />
@@ -97,5 +104,6 @@
 		  		 
 		  <input type="button" id="button1" value="I am Student" />
 	  </div>
+	  
 </body>
 </html>
