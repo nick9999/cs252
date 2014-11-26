@@ -246,7 +246,19 @@ $num_courses = $result1->num_rows;
                     </div>
 					<div style="padding-left:70px">
 						<div style="float:left">
+							<?php
+							$profile_pic = '../images/'.$name.'.jpg';
+							// $profile_pic = '../images/lnikhilp.jpg';
+							if (file_exists($profile_pic)) :
+							?>
+							<img style="height:200px" class="img-thumbnail" src="<?php echo $profile_pic ?>" alt="" height="10" width="200">
+							<?php
+							else :
+							?>
 	                		<img class="img-thumbnail" src="http://placehold.it/200x200" alt="">
+	                		<?php 
+	                		endif;
+	                		?>
 						</div>
 						<div style="padding-left:42px; float:left"><h3>
 							<table style="border-spacing: 15px">
