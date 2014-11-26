@@ -11,7 +11,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) 
 {
     die("Connection failed: " . $conn->connect_error);
-}
+} 
 
 $sql_fac_details = 'select * from users where username = "'.$name.'";';
 $fac_details = $conn->query($sql_fac_details);
@@ -19,7 +19,7 @@ if ($row = $fac_details->fetch_assoc())
 {
 	// $row = $fac_details->fetch_assoc()
 	// echo "<br>";
-	// echo $row["name"];
+	echo $row["name"];
 }
 
 $sql1='SELECT course_code FROM  course_instructor where instructor_username = "'.$name.'" ;';
@@ -28,6 +28,7 @@ $num_courses = $result1->num_rows;
 
 
 ?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -234,11 +235,8 @@ $num_courses = $result1->num_rows;
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            <?php echo $row["name"]; ?><br/>
-                        </h1>
-                        <div align="right">
-                        	<a href="edit_profile.php">Edit profile</a>
-                        </div>
+                            Username: <?php echo $name; ?><br/>
+                        </h1> 
                     </div>
 					<div style="padding-left:70px">
 						<div style="float:left">
@@ -258,22 +256,28 @@ $num_courses = $result1->num_rows;
 						</div>
 						<div style="padding-left:42px; float:left"><h3>
 							<table style="border-spacing: 15px">
-							<tr>
-								<th style="height:40px; width:200px">User Id:</th>
-								<td style="height:40px; width:200px"><?php echo $name; ?></td>
-							</tr>
+                            <form action="updating_database_edit_profile.php" method="POST">
+                            <tr>
+                                <th style="height:40px; width:200px">Name:</th>
+                                <td style="height:40px; width:200px"><input type="text" name="editName" value="<?php echo $row["name"]; ?>"></td>
+                            </tr>
 							<tr>
 								<th style="height:40px">email:</th>
-    							<td><?php echo $row["email"]; ?></td>
+    							<td><input type="text" name="editEmail" value="<?php echo $row["email"]; ?>"></td>
 							</tr>
 							<tr>
 								<th style="height:40px">Roll No.:</th>
-    							<td><?php echo $row["roll"]; ?></td>
+    							<td><input type="text" name="editRoll" value="<?php echo $row["roll"]; ?>"></td>
 							</tr>
 							<tr>
 								<th style="height:40px">Mobile No.:</th>
-								<td><?php echo $row["phone"]; ?></td>
+								<td><input type="text" name="editPhone" value="<?php echo $row["phone"]; ?>"></td>
 							</tr>
+                            <tr>
+                                <th></th>
+                                <td><input type="submit" value="Update"></td>
+                            </tr>
+                            </form>
 							</table>
 						</h3></div>
 					</div>
