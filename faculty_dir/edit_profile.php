@@ -246,10 +246,22 @@ $num_courses = $result1->num_rows;
 							if (file_exists($profile_pic)) :
 							?>
 								<img style="height:200px" class="img-thumbnail" src="<?php echo $profile_pic ?>" alt="" height="10" width="200">
+								<div>
+								    <form action="assignment_upload.php" method="post" enctype="multipart/form-data">
+								    Choose new Profile picture:   <input type="file" name="file" id="file"><br>
+								    <input type="submit" name="submit" value="Submit">
+								    </form>
+								</div>
 							<?php
 							else :
 							?>
 	                			<img class="img-thumbnail" src="http://placehold.it/200x200" alt="">
+	                			<div>
+	                			    <form action="assignment_upload.php" method="post" enctype="multipart/form-data">
+	                			    Add a Profile picture:   <input type="file" name="file" id="file"><br>
+	                			    <input type="submit" name="submit" value="Submit">
+	                			    </form>
+	                			</div>
 	                		<?php 
 	                		endif;
 	                		?>
